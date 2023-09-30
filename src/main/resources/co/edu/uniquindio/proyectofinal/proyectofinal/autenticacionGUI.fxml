@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="297.0" prefWidth="427.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.proyectofinal.viewController.AutenticacionViewController">
+   <children>
+      <Label layoutX="177.0" layoutY="41.0" text="Autenticación" />
+      <Label layoutX="71.0" layoutY="93.0" text="Usuario: " />
+      <TextField fx:id="txtUsuario" layoutX="158.0" layoutY="89.0" />
+      <PasswordField fx:id="txtContrasena" layoutX="158.0" layoutY="141.0" />
+      <Label layoutX="71.0" layoutY="145.0" text="Contraseña: " />
+
+      <RadioButton fx:id="rdoBtnAnunciante" layoutX="104.0" layoutY="205.0" mnemonicParsing="false" text="Anunciante" />
+      <RadioButton fx:id="rdoBtnComprador" layoutX="220.0" layoutY="205.0" mnemonicParsing="false" text="Comprador" />
+
+      <Button fx:id="btnAcceder" layoutX="163.0" layoutY="241.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="101.0" text="Acceder" />
+      </children>
+</AnchorPane>
