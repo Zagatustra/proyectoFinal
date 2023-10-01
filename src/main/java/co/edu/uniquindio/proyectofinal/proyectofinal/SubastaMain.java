@@ -22,6 +22,10 @@ public class SubastaMain {
         }
 
         List<UsuarioDto> usuarioDtoList = modelFactoryController.obtenerUsuario();
-        usuarioDtoList.forEach(System.out::println);
+        if (usuarioDtoList != null) {
+            usuarioDtoList.forEach(System.out::println);
+        } else {
+            System.out.println("La lista de usuarios está vacía o es null.");
+        }
     }
 }

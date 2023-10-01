@@ -13,4 +13,6 @@ module co.edu.uniquindio.proyectofinal.proyectofinal {
     opens co.edu.uniquindio.proyectofinal.proyectofinal.viewController to javafx.fxml;
     exports co.edu.uniquindio.proyectofinal.proyectofinal.viewController;
     exports co.edu.uniquindio.proyectofinal.proyectofinal.mapping to org.mapstruct;
+    opens co.edu.uniquindio.proyectofinal.proyectofinal.mapping;
+    exports co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto to org.mapstruct;
 }

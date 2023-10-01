@@ -4,20 +4,17 @@ import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.IModelFa
 import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Subasta;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Usuario;
 import co.edu.uniquindio.proyectofinal.proyectofinal.exepcion.UsuarioException;
-import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.SubastaMapper;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.utils.SubastaUtils;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.List;
 
 public class ModelFactoryController implements IModelFactoryService {
     Subasta subasta;
     Usuario usuario;
-    SubastaMapper mapper = SubastaMapper.INSTANCE;
+    //SubastaMapper mapper = SubastaMapper.INSTANCE;
 
 
     //------------------------------  Singleton ------------------------------------------------
@@ -90,7 +87,7 @@ public class ModelFactoryController implements IModelFactoryService {
     @Override
     public boolean actualizarUsuario(String usuActual, UsuarioDto usuarioDto,ArrayList<Usuario> listaUsuarios) {
         try {
-            Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
+           // Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
             getUsuario().actualizarUsuario(usuActual, usuario,listaUsuarios);
             return true;
         } catch (UsuarioException e) {

@@ -3,28 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="380.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.proyectofinal.viewController.SubastaViewController">
-   <children>
-      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Iniciar sesión">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="614.0">
+<AnchorPane prefHeight="380.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.proyectofinal.proyectofinal.viewController.SubastaViewController">
+    <TabPane layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Iniciar sesión">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="614.0">
 
 
-                            <fx:include source="autenticacionGUI.fxml" />
+                <fx:include source="autenticacionGUI.fxml"/>
 
-              </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Registrarse">
-              <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="590.0">
-                          <fx:include source="registroGUI.fxml" />
-              </AnchorPane>
-              </content>
-          </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+            </AnchorPane>
+        </Tab>
+        <Tab text="Registrarse">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="590.0">
+                <fx:include source="registroGUI.fxml"/>
+            </AnchorPane>
+        </Tab>
+    </TabPane>
 </AnchorPane>
