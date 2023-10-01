@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyectofinal.proyectofinal;
 
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.ModelFactoryController;
+import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.AnuncianteDto;
+import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.CompradorDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
 
 import java.util.List;
@@ -12,7 +14,7 @@ public class SubastaMain {
         UsuarioDto usuarioDto = new UsuarioDto(
                 "juan",
                 "arias",
-                "546"
+                "546",new AnuncianteDto("Juan","Arias","1234",null),new CompradorDto("Juan","Arias","1234",null)
         );
 
         if(modelFactoryController.agregarUsuario(usuarioDto)){

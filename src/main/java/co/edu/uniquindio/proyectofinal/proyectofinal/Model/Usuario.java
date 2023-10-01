@@ -4,6 +4,7 @@ import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.IUsuario
 import co.edu.uniquindio.proyectofinal.proyectofinal.exepcion.UsuarioException;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.SubastaController;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.UsuarioController;
+import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
 
 import java.util.ArrayList;
 
@@ -68,83 +69,7 @@ public class Usuario implements IUsuarioService {
         this.compRelacionado = compRelacionado;
     }
 
-    public Usuario crearUsuario(String usuario, String contrasena, String email, ArrayList<Usuario> listaUsuarios) throws UsuarioException {
-        Usuario nuevoUsuario = null;
-        boolean usuarioExiste = verificarUsuarioExistente(usuario,listaUsuarios);
-        if(usuarioExiste){
-            throw new UsuarioException("El usuario ya existe");
-        }else{
-            nuevoUsuario = new Usuario();
-            nuevoUsuario.setUsuario(usuario);
-            nuevoUsuario.setContrasena(contrasena);
-            nuevoUsuario.setEmail(email);
-            listaUsuarios.add(nuevoUsuario);
-        }
-        return nuevoUsuario;
-    }
 
 
-    public Boolean eliminarUsuario(String cedula,ArrayList<Usuario> listaUsuarios) throws UsuarioException {
-        Usuario usuario = null;
-        boolean flagExiste = false;
-        usuario = obtenerUsuario(cedula,listaUsuarios);
-        if(usuario == null)
-            throw new UsuarioException("El empleado a eliminar no existe");
-        else{
-            listaUsuarios.remove(usuario);
-            flagExiste = true;
-        }
-        return flagExiste;
-    }
 
-    @Override
-    public boolean actualizarUsuario(String usuarioActual, Usuario usuario, ArrayList<Usuario> listaUsuarios) throws UsuarioException {
-        return false;
-    }
-
-/*    @Override
-    public boolean actualizarUsuario(String usuarioActual, Usuario usuario,ArrayList<Usuarios> listaUsuarios) throws UsuarioException {
-
-        Usuario usuActual = obtenerUsuario(usuarioActual,listaUsuarios);
-        if(usuarioActual == null)
-            throw new UsuarioException("El empleado a actualizar no existe");
-        else{
-            usuActual.setUsuario(usuario.getUsuario());
-            usuActual.setContrasena(usuario.getContrasena());
-            usuActual.setEmail(usuario.getEmail());
-            return true;
-        }
-
-    }*/
-
-
-    public boolean verificarUsuarioExistente(String usu,ArrayList<Usuario> listaUsuarios) throws UsuarioException {
-        if(usuarioExiste(usu,listaUsuarios)){
-            throw new UsuarioException("El empleado con cedula:a existe");
-        }else{
-            return false;
-        }
-    }
-
-    public Usuario obtenerUsuario(String usu,ArrayList<Usuario> listaUsuarios){
-    Usuario usuarioEncontrado = null;
-        for (Usuario usuario : listaUsuarios) {
-        if(usuario.getUsuario().equalsIgnoreCase(usu)){
-            usuarioEncontrado = usuario;
-            break;
-        }
-    }
-    return usuarioEncontrado;
-    }
-
-    public boolean usuarioExiste(String usu,ArrayList<Usuario> listaUsuarios) {
-        boolean usuarioEncontrado = false;
-        for (Usuario usuario : listaUsuarios) {
-            if(usuario.getUsuario().equalsIgnoreCase(usu)){
-                usuarioEncontrado = true;
-                break;
-            }
-        }
-        return usuarioEncontrado;
-    }
 }

@@ -6,6 +6,6 @@ public record AnuncianteDto(
         String nombre,
         String apellido,
         String identificacion,
-        Date fechaNac
+        String fechaNac
 ) {
 }

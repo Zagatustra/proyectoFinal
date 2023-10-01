@@ -1,6 +1,8 @@
 package co.edu.uniquindio.proyectofinal.proyectofinal.mapping;
+import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Anunciante;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Usuario;
 
+import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
 
 import org.mapstruct.IterableMapping;
@@ -24,6 +26,15 @@ public interface SubastaMapper {
 
     @IterableMapping(qualifiedByName = "usuarioToUsuarioDto")
     List<UsuarioDto> getUsuarioDto(List<Usuario> listaUsu);
+
+    @Named("anuncianteToAnuncianteDto")
+    AnuncianteDto anuncianteToAnuncianteDto(Anunciante anunciante);
+
+    Anunciante anuncianteDtoToAnunciante(AnuncianteDto anuncianteDto);
+
+    @IterableMapping(qualifiedByName = "anuncianteToAnuncianteDto")
+    List<AnuncianteDto> getAnuncianteDto(List<Anunciante> anuncianteList);
+
 
 
 }

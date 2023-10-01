@@ -1,14 +1,11 @@
 package co.edu.uniquindio.proyectofinal.proyectofinal.Controller;
 
-import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.ISubastaService;
-import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
+import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.ISubastaControlService;
 
-import java.util.List;
-
-public class SubastaController implements ISubastaService {
+public class SubastaController implements ISubastaControlService {
     ModelFactoryController modelFactoryController;
 
-    public SubastaController(){
+    public SubastaController() {
         modelFactoryController = ModelFactoryController.getInstance();
     }
 

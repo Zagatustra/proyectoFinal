@@ -16,8 +16,9 @@ import java.util.List;
 
 public class ModelFactoryController implements IModelFactoryService {
     Subasta subasta;
-    Usuario usuario;
     SubastaMapper mapper = SubastaMapper.INSTANCE;
+    Usuario usuario;
+
 
 
     //------------------------------  Singleton ------------------------------------------------
@@ -51,19 +52,29 @@ public class ModelFactoryController implements IModelFactoryService {
 
     @Override
     public List<UsuarioDto> obtenerUsuario() {
-        return null;
+        return  mapper.getUsuarioDto(subasta.getListaUsuarios());
     }
 
     @Override
     public List<AnuncianteDto> obtenerAnunciante() {
-        return null;
+        return  mapper.getAnuncianteDto(subasta.getListaAnunciantes());
     }
+
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuarioDto) {
-        return false;
-    }
+        try {
+            if (!subasta.verificarUsuarioExistente(usuarioDto.usuario())) {
+                Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
+                getSubasta().agregarUsuario(usuario);
+            }
+            return true;
+        } catch (UsuarioException e) {
+            e.getMessage();
+            return false;
+        }
 
+    }
 
     @Override
     public boolean agrergarUsuario(Usuario usuario) {
@@ -74,7 +85,7 @@ public class ModelFactoryController implements IModelFactoryService {
     public boolean eliminarUsuario(String usuario) {
         boolean flagExiste = false;
         try {
-            flagExiste = getUsuario().eliminarUsuario(usuario,subasta.getListaUsuarios());
+            flagExiste = getSubasta().verificarUsuarioExistente(usuario);
         } catch (UsuarioException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -82,16 +93,11 @@ public class ModelFactoryController implements IModelFactoryService {
         return flagExiste;
     }
 
-    @Override
-    public boolean actualizarUsuario(String usuario, UsuarioDto usuarioDto) {
-        return false;
-    }
-
-    @Override
-    public boolean actualizarUsuario(String usuActual, UsuarioDto usuarioDto,ArrayList<Usuario> listaUsuarios) {
+       @Override
+    public boolean actualizarUsuario(String usuActual, UsuarioDto usuarioDto) {
         try {
             Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
-            getUsuario().actualizarUsuario(usuActual, usuario,listaUsuarios);
+            getSubasta().actualizarUsuario(usuActual, usuario);
             return true;
         } catch (UsuarioException e) {
             e.printStackTrace();

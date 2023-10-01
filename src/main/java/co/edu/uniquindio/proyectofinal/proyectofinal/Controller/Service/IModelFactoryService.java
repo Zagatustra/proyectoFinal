@@ -17,5 +17,4 @@ public interface IModelFactoryService {
     boolean eliminarUsuario(String usuario);
 
     boolean actualizarUsuario(String usuario, UsuarioDto usuarioDto);
-    boolean actualizarUsuario(String usuActual, UsuarioDto usuarioDto,ArrayList<Usuario> listaUsuarios);
 }
