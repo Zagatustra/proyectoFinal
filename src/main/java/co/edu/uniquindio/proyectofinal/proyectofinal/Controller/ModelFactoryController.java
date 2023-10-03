@@ -1,16 +1,15 @@
 package co.edu.uniquindio.proyectofinal.proyectofinal.Controller;
 
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.IModelFactoryService;
+import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Anunciante;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Subasta;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Model.Usuario;
 import co.edu.uniquindio.proyectofinal.proyectofinal.exepcion.UsuarioException;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.SubastaMapper;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.AnuncianteDto;
+import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.CompradorDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.UsuarioDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.utils.SubastaUtils;
-
-import java.io.IOException;
-import java.util.ArrayList;
 
 import java.util.List;
 
@@ -18,6 +17,7 @@ public class ModelFactoryController implements IModelFactoryService {
     Subasta subasta;
     SubastaMapper mapper = SubastaMapper.INSTANCE;
     Usuario usuario;
+    boolean bandera=false;
 
 
 
@@ -51,15 +51,13 @@ public class ModelFactoryController implements IModelFactoryService {
 
 
     @Override
-    public List<UsuarioDto> obtenerUsuario() {
-        return  mapper.getUsuarioDto(subasta.getListaUsuarios());
-    }
+    public List<UsuarioDto> obtenerUsuario() {return  mapper.getUsuariosDto(subasta.getListaUsuarios());}
 
-    @Override
-    public List<AnuncianteDto> obtenerAnunciante() {
-        return  mapper.getAnuncianteDto(subasta.getListaAnunciantes());
-    }
 
+
+    public List<CompradorDto> obtenerComprador() {
+        return  mapper.getCompradorDto(subasta.getListaCompradores());
+    }
 
     @Override
     public boolean agregarUsuario(UsuarioDto usuarioDto) {
@@ -67,6 +65,7 @@ public class ModelFactoryController implements IModelFactoryService {
             if (!subasta.verificarUsuarioExistente(usuarioDto.usuario())) {
                 Usuario usuario = mapper.usuarioDtoToUsuario(usuarioDto);
                 getSubasta().agregarUsuario(usuario);
+                bandera=true;
             }
             return true;
         } catch (UsuarioException e) {
@@ -77,10 +76,18 @@ public class ModelFactoryController implements IModelFactoryService {
     }
 
     @Override
-    public boolean agrergarUsuario(Usuario usuario) {
-        return false;
-    }
+    public boolean agregarAnunciante(AnuncianteDto anuncianteDto) {
+        try {
+                Anunciante anuncnainte = mapper.anuncianteDtoToAnunciante(anuncianteDto);
+                getSubasta().agregarAnunciante(anuncnainte);
 
+            return true;
+        } catch (UsuarioException e) {
+            e.getMessage();
+            return false;
+        }
+
+    }
     @Override
     public boolean eliminarUsuario(String usuario) {
         boolean flagExiste = false;
@@ -104,5 +111,9 @@ public class ModelFactoryController implements IModelFactoryService {
             return false;
         }
     }
+    @Override
+    public boolean actualizarInterfaz(){
+        return bandera;
+        }
 }
 

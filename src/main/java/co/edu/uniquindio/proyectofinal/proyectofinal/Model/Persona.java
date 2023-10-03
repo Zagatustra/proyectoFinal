@@ -7,10 +7,10 @@ public abstract class Persona {
     private String nombre;
     private String apellido;
     private String identificación;
-    private Date fechaNac;
+    private String fechaNac;
     public Persona(){};
 
-    public Persona(String nombre, String apellido, String identificación, Date fechaNac) {
+    public Persona(String nombre, String apellido, String identificación, String fechaNac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificación = identificación;
@@ -41,11 +41,11 @@ public abstract class Persona {
         this.identificación = identificación;
     }
 
-    public Date getFechaNac() {
+    public String getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(String fechaNac) {
         this.fechaNac = fechaNac;
     }
 }

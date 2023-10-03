@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="336.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="53.0" layoutY="40.0" prefHeight="52.0" prefWidth="159.0" text="Datos personales">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="45.0" layoutY="123.0" text="Nombre:" />
+      <Label layoutX="45.0" layoutY="174.0" text="Apellido: " />
+      <Label layoutX="45.0" layoutY="219.0" text="Identificación: " />
+      <TextField fx:id="txtNombre" layoutX="134.0" layoutY="119.0" />
+      <TextField fx:id="txTApellido" layoutX="134.0" layoutY="168.0" />
+      <TextField fx:id="txtIdentificacion" layoutX="135.0" layoutY="215.0" />
+      <Button fx:id="btnEliminar" layoutX="345.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Eliminar" />
+      <Button fx:id="btnActualizar" layoutX="345.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Actualizar" />
+   </children>
+</AnchorPane>

@@ -7,7 +7,5 @@ public record UsuarioDto(
 
         String usuario,
         String contrasena,
-        String email,
-        AnuncianteDto anunRelacionado,
-        CompradorDto comRelacionado) {
+        String email){
 }

@@ -8,5 +8,8 @@ public class SubastaController implements ISubastaControlService {
     public SubastaController() {
         modelFactoryController = ModelFactoryController.getInstance();
     }
-
+    @Override
+    public boolean cambiar(){
+        return modelFactoryController.actualizarInterfaz();
+    }
 }

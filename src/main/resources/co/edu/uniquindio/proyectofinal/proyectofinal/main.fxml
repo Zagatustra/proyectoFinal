@@ -3,14 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="380.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.proyectofinal.viewController.SubastaViewController">
+<AnchorPane fx:id="panel" prefHeight="380.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectofinal.proyectofinal.viewController.SubastaViewController">
    <children>
-      <TabPane layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Iniciar sesión">
+      <TabPane  layoutX="10.0" layoutY="10.0" prefHeight="395.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs >
+          <Tab  text="Iniciar sesión">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="614.0">
-
+              <AnchorPane fx:id="tabP" minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="614.0">
 
                             <fx:include source="autenticacionGUI.fxml" />
 
@@ -19,9 +18,39 @@
           </Tab>
           <Tab text="Registrarse">
               <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="590.0">
-                          <fx:include source="registroGUI.fxml" />
-              </AnchorPane>
+                  <AnchorPane fx:id="tab1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+                      <children>
+                          <TitledPane animated="false" layoutX="5.0" prefHeight="168.0" prefWidth="591.0" text="Datos personales">
+                              <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="611.0">
+                                      <children>
+                                          <Label layoutX="10.0" layoutY="42.0" text="Nombre: " />
+                                          <TextField fx:id="txtNombreReg" layoutX="89.0" layoutY="38.0" />
+                                          <Label layoutX="295.0" layoutY="42.0" text="Apellido: " />
+                                          <TextField fx:id="txtApellidoReg" layoutX="382.0" layoutY="38.0" />
+                                          <Label layoutX="128.0" layoutY="83.0" text="Identificación" />
+                                          <TextField fx:id="txtIdentificacionReg" layoutX="220.0" layoutY="79.0" />
+                                      </children>
+                                  </AnchorPane>
+                              </content>
+                          </TitledPane>
+                          <TitledPane animated="false" layoutX="5.0" layoutY="182.0" prefHeight="141.0" prefWidth="591.0" text="Datos de usuario">
+                              <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="111.0" prefWidth="589.0">
+                                      <children>
+                                          <Label layoutX="14.0" layoutY="33.0" text="Usuario: " />
+                                          <TextField fx:id="txtUsuarioReg" layoutX="94.0" layoutY="29.0" />
+                                          <Label layoutX="295.0" layoutY="33.0" text="Contraseña" />
+                                          <PasswordField fx:id="txtContrasenaReg" layoutX="381.0" layoutY="29.0" />
+                                          <Label layoutX="161.0" layoutY="68.0" text="Email: " />
+                                          <TextField fx:id="txtEmailReg" layoutX="220.0" layoutY="64.0" />
+                                      </children>
+                                  </AnchorPane>
+                              </content>
+                          </TitledPane>
+                          <Button fx:id="btnRegistro" layoutX="246.0" layoutY="330.0" mnemonicParsing="false" onAction="#nuevoUsuarioAction" prefHeight="25.0" prefWidth="109.0" text="Registrar" />
+                      </children>
+                  </AnchorPane>
               </content>
           </Tab>
         </tabs>

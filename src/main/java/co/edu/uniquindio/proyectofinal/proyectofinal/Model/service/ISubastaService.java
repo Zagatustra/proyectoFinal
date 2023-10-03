@@ -6,7 +6,7 @@ import co.edu.uniquindio.proyectofinal.proyectofinal.exepcion.UsuarioException;
 import java.util.ArrayList;
 
 public interface ISubastaService {
-    Usuario crearUsuario(String usuario, String contrasena, String email, ArrayList<Usuario> listaUsuarios) throws UsuarioException;
+    Usuario crearUsuario(String nombre, String apellido,String identificacion, String usuario, String contrasena, String email) throws UsuarioException;
 
     Boolean eliminarUsuario(String cedula, ArrayList<Usuario> listaUsuarios) throws UsuarioException;
 
@@ -17,4 +17,6 @@ public interface ISubastaService {
     Usuario obtenerUsuario(String usu, ArrayList<Usuario> listaUsuarios);
 
     boolean usuarioExiste(String usu);
+
+    void cambiarInter();
 }

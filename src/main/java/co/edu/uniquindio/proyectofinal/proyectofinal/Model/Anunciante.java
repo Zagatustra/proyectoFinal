@@ -8,7 +8,7 @@ public class Anunciante extends Persona{
         super();
     };
     public Anunciante(String nombre, String apellido,
-                      String identificacion, Date fechaNac){
+                      String identificacion, String fechaNac){
         super(nombre,apellido,identificacion,fechaNac);
     }
 }

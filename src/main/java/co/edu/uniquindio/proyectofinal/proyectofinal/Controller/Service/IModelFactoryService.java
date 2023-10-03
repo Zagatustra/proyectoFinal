@@ -10,11 +10,16 @@ import java.util.List;
 
 public interface IModelFactoryService {
     List<UsuarioDto> obtenerUsuario();
-    List<AnuncianteDto> obtenerAnunciante();
+
 
     boolean agregarUsuario(UsuarioDto usuarioDto);
-    boolean agrergarUsuario(Usuario usuario);
+
+    boolean agregarAnunciante(AnuncianteDto anuncianteDto);
+
+    //boolean agrergarUsuario(Usuario usuario);
     boolean eliminarUsuario(String usuario);
 
     boolean actualizarUsuario(String usuario, UsuarioDto usuarioDto);
+
+    boolean actualizarInterfaz();
 }

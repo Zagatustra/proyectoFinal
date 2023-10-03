@@ -9,8 +9,9 @@ public class Subasta implements ISubastaService {
     private static final long serialVersionUID = 1L;
 
     ArrayList<Usuario> listaUsuarios = new ArrayList<>();
-    ArrayList<Comprador> listaCompradores = new ArrayList<>();
     ArrayList<Anunciante> listaAnunciantes = new ArrayList<>();
+    ArrayList<Comprador> listaCompradores = new ArrayList<>();
+
 
     public Subasta() {
 
@@ -43,7 +44,7 @@ public class Subasta implements ISubastaService {
 
     //FUNCIONES
 @Override
-    public Usuario crearUsuario(String usuario, String contrasena, String email, ArrayList<Usuario> listaUsuarios) throws UsuarioException {
+    public Usuario crearUsuario(String nombre, String apellido,String identificacion,String usuario, String contrasena, String email) throws UsuarioException {
         Usuario nuevoUsuario = null;
         boolean usuarioExiste = verificarUsuarioExistente(usuario);
         if(usuarioExiste){
@@ -54,6 +55,10 @@ public class Subasta implements ISubastaService {
             nuevoUsuario.setContrasena(contrasena);
             nuevoUsuario.setEmail(email);
             listaUsuarios.add(nuevoUsuario);
+            Anunciante anunRel = new Anunciante(nombre,apellido,identificacion,null);
+            Comprador compRel=new Comprador(nombre,apellido,identificacion,null);
+            nuevoUsuario.setCompRelacionado(compRel);
+            nuevoUsuario.setAnunRelacionado(anunRel);
         }
         return nuevoUsuario;
     }
@@ -61,7 +66,20 @@ public class Subasta implements ISubastaService {
     public void agregarUsuario(Usuario nuevoUsuario) throws UsuarioException {
         getListaUsuarios().add(nuevoUsuario);
         getListaAnunciantes().add(nuevoUsuario.getAnunRelacionado());
-        System.out.println("Información del banco creada");
+        for(Usuario usu:listaUsuarios){
+            try{
+            System.out.println(usu.getAnunRelacionado().getNombre());}
+            catch (NullPointerException e){
+                System.out.println(usu.getUsuario());
+            }
+        }
+    }
+    public void agregarAnunciante(Anunciante nuevoAnunciante) throws UsuarioException {
+        getListaAnunciantes().add(nuevoAnunciante);
+
+        for(Anunciante anunciante:listaAnunciantes){
+                  System.out.println(anunciante.getNombre());}
+
     }
 
     @Override
@@ -125,6 +143,11 @@ public class Subasta implements ISubastaService {
             }
         }
         return usuarioEncontrado;
+    }
+
+    @Override
+    public void cambiarInter() {
+
     }
 }
 

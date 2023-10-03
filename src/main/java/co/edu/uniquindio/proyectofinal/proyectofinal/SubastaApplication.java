@@ -1,6 +1,5 @@
 package co.edu.uniquindio.proyectofinal.proyectofinal;
 
-import co.edu.uniquindio.proyectofinal.proyectofinal.viewController.SubastaViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +15,7 @@ import java.io.IOException;
 public class SubastaApplication extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private boolean pestana;
     @Override
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage;
@@ -24,12 +24,13 @@ public class SubastaApplication extends Application {
     }
 
     public void mostrarVentanaPrincipal() {
+
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(SubastaApplication.class.getResource("main.fxml"));
-            AnchorPane rootLayout = (AnchorPane) loader.load();
-            SubastaViewController subastasViewController = loader.getController();
-//            subastasViewController.setAplicacion(this);
+            AnchorPane rootLayout =  loader.load();
+            //SubastaViewController subastasViewController = loader.getController();
+            //subastasViewController.setAplicacion(this);
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             //scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
