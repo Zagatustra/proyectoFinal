@@ -12,13 +12,5 @@ import java.util.List;
 public interface IRegistroService {
 
 
-    List<UsuarioDto> obtenerUsuario();
 
-    boolean agregarUsuario(UsuarioDto usuarioDto);
-
-    boolean eliminarUsuario(String usuario,String id);
-
-    boolean actualizarUsuario(String cedulaActual, UsuarioDto usuarioDto);
-
-    boolean cambiar();
 }

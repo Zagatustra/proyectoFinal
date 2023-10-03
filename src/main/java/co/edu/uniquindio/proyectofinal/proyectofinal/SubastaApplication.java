@@ -29,9 +29,7 @@ public class SubastaApplication extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(SubastaApplication.class.getResource("main.fxml"));
             AnchorPane rootLayout =  loader.load();
-            //SubastaViewController subastasViewController = loader.getController();
-            //subastasViewController.setAplicacion(this);
-            // Show the scene containing the root layout.
+                        // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             //scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
             primaryStage.setScene(scene);

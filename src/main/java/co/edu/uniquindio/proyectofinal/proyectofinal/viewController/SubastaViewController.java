@@ -3,6 +3,8 @@ package co.edu.uniquindio.proyectofinal.proyectofinal.viewController;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.RegistroController;
 import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.IRegistroService;
 
+import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.Service.ISubastaControlService;
+import co.edu.uniquindio.proyectofinal.proyectofinal.Controller.SubastaController;
 import co.edu.uniquindio.proyectofinal.proyectofinal.SubastaApplication;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.AnuncianteDto;
 import co.edu.uniquindio.proyectofinal.proyectofinal.mapping.dto.CompradorDto;
@@ -21,14 +23,15 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SubastaViewController {
-    IRegistroService registroControllerService;
+    ISubastaControlService subastaControllerService;
 
 
     @FXML
     private AnchorPane panel;
     @FXML
     private ResourceBundle resources;
-    ObservableList<UsuarioDto> listaUsuarioDto= FXCollections.observableArrayList();
+    ObservableList<UsuarioDto> listaUsuarioDto=FXCollections.observableArrayList();
+    //ObservableList<UsuarioDto> listaUsuarioDto= FXCollections.observableArrayList();
     ObservableList<AnuncianteDto> listaAnuncianteDto= FXCollections.observableArrayList();
     ObservableList<CompradorDto> listaCompradorDto= FXCollections.observableArrayList();
     @FXML
@@ -47,35 +50,12 @@ public class SubastaViewController {
     private TextField txtIdentificacionReg;
     @FXML
     private Button btnRegistro;
-    private TableView<UsuarioDto> tableUsuario;
-    @FXML
-    private TableColumn<UsuarioDto, String> tcNombre;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcApellido;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcIdentificacion;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcFechaNacimiento;
-    @FXML
-    private TableColumn<UsuarioDto, String> tcUsuario;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcContrasena;
-
-    @FXML
-    private TableColumn<UsuarioDto, String> tcEmail;
-
-
-
 
 
     @FXML
     void initialize() {
 
-        registroControllerService = new RegistroController();
+        subastaControllerService = new SubastaController();
 
         intiView();
 
@@ -92,7 +72,7 @@ public class SubastaViewController {
     }*/
 
     private void obtenerUsuario() {
-        listaUsuarioDto.addAll(registroControllerService.obtenerUsuario());
+        listaUsuarioDto.addAll(subastaControllerService.obtenerUsuario());
     }
 
 
@@ -123,12 +103,12 @@ public class SubastaViewController {
         AnuncianteDto anuncianteDto = construirAnuncianteDto();
         //2. Validar la información
         if (datosValidos(usuarioDto,anuncianteDto)){
-            if (registroControllerService.agregarUsuario(usuarioDto)) {
+            if (subastaControllerService.agregarUsuario(usuarioDto)) {
                 listaUsuarioDto.add(usuarioDto);
                 mostrarMensaje("Notificación usuario", "Usuario creado",
                         "El usuario se ha creado con éxito. \n Bienvenido. ", Alert.AlertType.INFORMATION);
                 limpiarCamposEmpleado();
-                cambiarI(registroControllerService.cambiar());
+                cambiarI(subastaControllerService.cambiar());
                 return true;
             } else {
                 mostrarMensaje("Notificación empleado", "Empleado no creado", "El empleado no se ha creado con éxito", Alert.AlertType.ERROR);
@@ -211,7 +191,7 @@ public class SubastaViewController {
 
             try{
                 FXMLLoader loader= new FXMLLoader();
-                loader.setLocation(SubastaApplication.class.getResource("main2.fxml"));
+                loader.setLocation(SubastaApplication.class.getResource("anuncianteGUI.fxml"));
                 AnchorPane panelN= loader.load();
                 panel.getChildren().add(panelN);
 
